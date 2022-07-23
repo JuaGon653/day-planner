@@ -22,9 +22,9 @@ for(var i = 0; i < 24; i++){
     }
     tableRowEl.attr("class", "row");
     tableRowEl.append('<td class="col-2 custom-col">' + (i+1) + amORpm + '</td>');
-    if(throughTF+1 < moment().format("h")){
+    if(throughTF+1 < moment().format("H")){
         tableRowEl.append('<td class="col-8 custom-col past"><textarea class="row' + throughTF + '"></textarea></td>');
-    } else if (throughTF+1 > moment().format("h")){
+    } else if (throughTF+1 > moment().format("H")){
         tableRowEl.append('<td class="col-8 custom-col future"><textarea class="row' + throughTF + '"></textarea></td>');
     } else {
         tableRowEl.append('<td class="col-8 custom-col present"><textarea class="row' + throughTF + '"></textarea></td>');
