@@ -6,6 +6,7 @@ var textArray;
 var day = moment().format("dddd, MMMM Do");
 var afterTwelve = 0;
 
+
 currentDayEl.text(day);
 
 
@@ -39,10 +40,15 @@ for(var i = 0; i < 24; i++){
 }
 saveBtnEl = $('.saveBtn');
 textInput = $('textarea');
-if(localStorage.getItem("textArray") == null){
-    var textArray = [];
+var prevDay = localStorage.getItem('prevDay');
+if(prevDay < moment().format("DDD")){
+    textArray = [];
 } else {
-    var textArray = JSON.parse(localStorage.getItem("textArray"));
+    if(localStorage.getItem("textArray") == null){
+        var textArray = [];
+    } else {
+        var textArray = JSON.parse(localStorage.getItem("textArray"));
+    }
 }
 for(var i = 0; i < 24; i++){
     textInput.eq(i).val(textArray[i]); 
@@ -63,4 +69,5 @@ saveBtnEl.on('click', function(event) {
     }
     textArray = tempArray;
     localStorage.setItem("textArray", JSON.stringify(textArray));
+    localStorage.setItem("prevDay", moment().format("DDD"));
 })
