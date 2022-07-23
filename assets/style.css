@@ -94,12 +94,6 @@ input {
   color: white;
 }
 
-.saveBtn:active {
-  background-color: lightgreen;
-  transition: all .0s ease-in-out;
-  cursor: pointer;
-}
-
 input {
   line-height: 5px;
 }
