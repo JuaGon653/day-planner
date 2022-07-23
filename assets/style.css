@@ -23,8 +23,8 @@ textarea{
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: transparent;
-  color: black;
+  background-color: #121212;
+  color: whitesmoke;
   border-radius: 0;
   border-bottom: 10px solid black;
 }
@@ -94,6 +94,12 @@ input {
   color: white;
 }
 
+.saveBtn:active {
+  background-color: lightgreen;
+  transition: all .0s ease-in-out;
+  cursor: pointer;
+}
+
 input {
   line-height: 5px;
 }
@@ -106,6 +112,7 @@ input {
     height: 200px;
   }
 }
+
 @media (hover: hover){
     
   .saveBtn:hover {
