@@ -1,4 +1,4 @@
-# day-planner
+# work-day-scheduler
 
 ## Description
 
