@@ -4,18 +4,21 @@ var saveBtnEl;
 var textInput;
 var textArray;
 var day = moment().format("dddd, MMMM Do");
-var afterTwelve = 0;
 
 
+// sets the currentDay element to the current day
 currentDayEl.text(day);
 
-
-var throughTF = 0;
-for(var i = 0; i < 24; i++){
+// time starts at 9 so the throughTF index needs to start at 8
+var throughTF = 8;
+var afterTwelve = 0;
+// loops to create the 9 time blocks
+for(var i = 8; i <= 16; i++){
     var tableRowEl = $('<tr></tr>');
     var amORpm = 'AM';
     var temp = 0;
-    if(i > 11){
+    // after 12am it displays 'pm' instead and restarts the 1-5 count
+    if(i >= 12){
         amORpm = 'PM';
         temp = i;
         i = afterTwelve;
@@ -30,7 +33,6 @@ for(var i = 0; i < 24; i++){
     } else {
         tableRowEl.append('<td class="col-8 custom-col present"><textarea class="row' + throughTF + '"></textarea></td>');
     }
-
     tableRowEl.append('<td class="col-2 custom-col"><img class="saveBtn" id="row' + throughTF + '" src="./assets/images/save-image.png"></td>');
     tableBodyEl.append(tableRowEl);
     if(amORpm === 'PM'){
@@ -45,12 +47,12 @@ if(prevDay < moment().format("DDD")){
     textArray = [];
 } else {
     if(localStorage.getItem("textArray") == null){
-        var textArray = [];
+        textArray = [];
     } else {
-        var textArray = JSON.parse(localStorage.getItem("textArray"));
+        textArray = JSON.parse(localStorage.getItem("textArray"));
     }
 }
-for(var i = 0; i < 24; i++){
+for(var i = 0; i <= textInput.length; i++){
     textInput.eq(i).val(textArray[i]); 
 }
 
