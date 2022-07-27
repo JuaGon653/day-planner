@@ -74,7 +74,7 @@ saveBtnEl.on('click', function(event) {
     var tempArray = [];
     // goes through all the time blocks to see which one has the same class name as the pressed element's id
     // or if the input was already in the saved array in order to save the event
-    for(var i = 8; i <= 16; i++){
+    for(var i = 0; i <= 8; i++){
         if (id == textInput.eq(i).attr('class') || (textInput.eq(i).val() == textArray[i])){
             tempArray.push(textInput.eq(i).val());
         } else {
